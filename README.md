@@ -1,44 +1,42 @@
-# Welcome to your Lovable project
+# Heineken Campanha
 
-## Project info
+Este repositório contém o código-fonte do sistema de gestão de campanhas e PDVs da Heineken.
 
-**URL**: https://lovable.dev/projects/f86aa35a-f263-4d46-9f49-649b7fc5d462
+## Visão Geral
 
-## How can I edit this code?
+Aplicação web para administração de campanhas promocionais, gestão de pontos de venda (PDVs), acompanhamento de envios e relatórios.
 
-There are several ways of editing your application.
+## Tecnologias Utilizadas
+- React + TypeScript
+- Vite
+- Tailwind CSS
 
-**Use Lovable**
+## Instalação
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/dithosolucoes/heineken-campanha.git
+   cd heineken-campanha
+   ```
+2. Instale as dependências:
+   ```sh
+   npm install
+   ```
+3. Inicie o servidor de desenvolvimento:
+   ```sh
+   npm run dev
+   ```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f86aa35a-f263-4d46-9f49-649b7fc5d462) and start prompting.
+## Scripts
+- `npm run dev` — Inicia a aplicação em modo desenvolvimento
+- `npm run build` — Gera build de produção
+- `npm run preview` — Visualiza o build de produção localmente
 
-Changes made via Lovable will be committed automatically to this repo.
+## Contribuição
+Pull requests são bem-vindos. Para grandes mudanças, por favor abra uma issue primeiro para discutir o que você gostaria de modificar.
 
-**Use your preferred IDE**
+## Licença
+Este projeto é confidencial e de uso exclusivo para fins de demonstração e avaliação pela Heineken e parceiros autorizados.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
 - Click the "Edit" button (pencil icon) at the top right of the file view.
 - Make your changes and commit the changes.
 

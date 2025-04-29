@@ -20,6 +20,8 @@ import PDVRulesPage from "./pages/pdv/PDVRulesPage";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import AdminUploadsPage from "./pages/admin/AdminUploadsPage";
 import AdminRankingPage from "./pages/admin/AdminRankingPage";
+import AdminCampaignsPage from "./pages/admin/AdminCampaignsPage";
+import AdminPdvsPage from "./pages/admin/AdminPdvsPage";
 
 // NotFound
 import NotFound from "./pages/NotFound";
@@ -63,6 +65,8 @@ const App = () => (
             
             {/* Admin Routes */}
             <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboardPage /></AdminRoute>} />
+            <Route path="/admin/campaigns" element={<AdminRoute><AdminCampaignsPage /></AdminRoute>} />
+            <Route path="/admin/pdvs" element={<AdminRoute><AdminPdvsPage /></AdminRoute>} />
             <Route path="/admin/uploads" element={<AdminRoute><AdminUploadsPage /></AdminRoute>} />
             <Route path="/admin/ranking" element={<AdminRoute><AdminRankingPage /></AdminRoute>} />
             <Route path="/admin/campaigns" element={<AdminRoute><AdminDashboardPage /></AdminRoute>} />

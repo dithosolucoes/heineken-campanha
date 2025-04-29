@@ -13,7 +13,18 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  // Persistência do usuário autenticado
+  const [user, setUser] = useState<User | null>(() => {
+    const stored = localStorage.getItem('heinekenhub_user');
+    if (stored) {
+      try {
+        return JSON.parse(stored) as User;
+      } catch {
+        return null;
+      }
+    }
+    return null;
+  });
   const { toast } = useToast();
 
   const loginPdv = async (cnpj: string): Promise<boolean> => {
@@ -29,11 +40,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
     
     // Mock user creation for PDV role
-    setUser({
+    const pdvUser = {
       id: 'pdv-' + Date.now(),
       role: 'pdv',
       cnpj
-    });
+    };
+    setUser(pdvUser);
+    localStorage.setItem('heinekenhub_user', JSON.stringify(pdvUser));
     return true;
   };
 
@@ -54,11 +67,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     
     const role: UserRole = isSuperAdmin ? 'superadmin' : (isAdmin ? 'admin' : 'pdv');
     
-    setUser({
+    const adminUser = {
       id: role + '-' + Date.now(),
       role,
       email
-    });
+    };
+    setUser(adminUser);
+    localStorage.setItem('heinekenhub_user', JSON.stringify(adminUser));
     
     return true;
   };
@@ -84,6 +99,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('heinekenhub_user');
   };
 
   return (
