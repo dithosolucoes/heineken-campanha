@@ -1,33 +1,30 @@
-
 import { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Home, Upload, Clock, Book, LogOut } from 'lucide-react';
-
 interface PDVLayoutProps {
   children: ReactNode;
   title: string;
 }
-
-const PDVLayout = ({ children, title }: PDVLayoutProps) => {
-  const { logout } = useAuth();
+const PDVLayout = ({
+  children,
+  title
+}: PDVLayoutProps) => {
+  const {
+    logout
+  } = useAuth();
   const navigate = useNavigate();
-
   const handleLogout = () => {
     logout();
     navigate('/');
   };
-
-  return (
-    <div className="min-h-screen bg-heineken-light">
+  return <div className="min-h-screen bg-heineken-light">
       {/* Top Navigation */}
       <header className="bg-heineken-green text-white p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">Heineken Hub</h1>
-          <Button variant="outline" 
-                  className="text-white border-white hover:bg-white/10" 
-                  onClick={handleLogout}>
+          <Button variant="outline" onClick={handleLogout} className="border-white hover:bg-white/10 text-teal-50">
             <LogOut size={16} className="mr-2" />
             Sair
           </Button>
@@ -62,35 +59,19 @@ const PDVLayout = ({ children, title }: PDVLayoutProps) => {
           <div className="p-4">
             <h2 className="text-lg font-medium mb-6">Menu</h2>
             <nav className="space-y-1">
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start mb-1"
-                onClick={() => navigate('/pdv/campaigns')}
-              >
+              <Button variant="ghost" className="w-full justify-start mb-1" onClick={() => navigate('/pdv/campaigns')}>
                 <Home size={20} className="mr-2" />
                 Campanhas
               </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start mb-1"
-                onClick={() => navigate('/pdv/upload')}
-              >
+              <Button variant="ghost" className="w-full justify-start mb-1" onClick={() => navigate('/pdv/upload')}>
                 <Upload size={20} className="mr-2" />
                 Enviar Fotos
               </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start mb-1"
-                onClick={() => navigate('/pdv/history')}
-              >
+              <Button variant="ghost" className="w-full justify-start mb-1" onClick={() => navigate('/pdv/history')}>
                 <Clock size={20} className="mr-2" />
                 Histórico
               </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start mb-1"
-                onClick={() => navigate('/pdv/rules')}
-              >
+              <Button variant="ghost" className="w-full justify-start mb-1" onClick={() => navigate('/pdv/rules')}>
                 <Book size={20} className="mr-2" />
                 Regras
               </Button>
@@ -106,8 +87,6 @@ const PDVLayout = ({ children, title }: PDVLayoutProps) => {
           </div>
         </main>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default PDVLayout;
